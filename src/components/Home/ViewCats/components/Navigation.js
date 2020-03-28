@@ -6,7 +6,8 @@ import { CAT_LIST } from '../../../../data/db'
 export const Navigation = () => {
 
     ///acá pondremos mas funciones // cat = CAT_LIST[0] no funciona tan asi
-    const [ cat, setCat ] = useState(CAT_LIST[1]) 
+    const [ cat, setCat ] = useState(CAT_LIST[0])
+    //const [ indexCat, setIndexCat ] = useState(0)
 
     const goBack = () => {
         console.log('go back...')
