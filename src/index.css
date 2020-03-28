@@ -130,6 +130,9 @@ body {
   padding: 8px; 
   border-radius: 50%;
   margin: 0 10px;
+  width: 30px;
+  height: 30;
+  text-align: center;
 }
 
 .navigation-icon:hover{

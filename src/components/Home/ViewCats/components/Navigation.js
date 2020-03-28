@@ -1,19 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavigationIcon } from './Navigation-icon'
 import { Couple } from './Couple'
+import { CAT_LIST } from '../../../../data/db'
 
-export const Navigation = () => (
-    <div className="navigation">
-        <div>
-            <NavigationIcon name="arrow-undo" />
+export const Navigation = () => {
+
+    ///acá pondremos mas funciones // cat = CAT_LIST[0] no funciona tan asi
+    const [ cat, setCat ] = useState(CAT_LIST[1]) 
+
+    const goBack = () => {
+        console.log('go back...')
+        setCat(CAT_LIST[0])
+    }
+
+    const goNext = () => {
+        console.log('go next...')
+        setCat(CAT_LIST[2])
+    }
+
+    return (
+        <div className="navigation">
+            <NavigationIcon onPress={ goBack } name="arrow-undo" />
+            <Couple
+                image={ cat.image }
+                username={ cat.username }
+                description={ cat.description }
+            />
+            <NavigationIcon onPress={ goNext } name="arrow-redo" />
         </div>
-        <Couple
-            image="https://www.hola.com/imagenes/estar-bien/20180926130368/como-saber-si-mi-gata-esta-en-celo/0-603-746/como-saber-si-mi-gata-esta-en-celo-ok-t.jpg"
-            username="@princess"
-            description="Soy tierna, me gusta cazar pajaros y comer galletas de la suerte. Da like para que salgamos a cazar!"
-        />
-        <div>
-            <NavigationIcon name="arrow-redo" />
-        </div>
-    </div>
-)
+    )
+}
