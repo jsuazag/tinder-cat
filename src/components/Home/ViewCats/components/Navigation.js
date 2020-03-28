@@ -17,14 +17,17 @@ export const Navigation = () => {
 
     const goNext = () => {
         let newIndex = indexCat == CAT_LIST.length - 1 ? 0 : indexCat + 1
-        setIndexCat( newIndex )
+        setIndexCat(newIndex)
     }
 
     //componentDidMount / componentDidUpdate
     useEffect( () => {
         setCat(CAT_LIST[indexCat])
+
+        return () => { } //saneamiento!
     }, [indexCat])
 
+    //renderizar
     return (
         <div className="navigation">
             <NavigationIcon onPress={ goBack } name="arrow-undo" />

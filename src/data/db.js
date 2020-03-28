@@ -20,3 +20,42 @@ export const CAT_LIST = [
         description: 'Soy tierna, me gusta cazar pajaros y comer galletas de la suerte. Da like para que salgamos a cazar!'
     }
 ]
+
+export const INTERESTS = [
+    {
+        name: 'Cazar',
+        status: true
+    },
+    {
+        name: 'Dormir',
+        status: false,
+    },
+    {
+        name: 'Despelucar',
+        status: false
+    },
+    {
+        name: 'Trepar',
+        status: true
+    },
+    {
+        name: 'Maullar',
+        status: true
+    },
+    {
+        name: 'Holgasanear',
+        status: false
+    },
+    {
+        name: 'Comer',
+        status: false
+    },
+    {
+        name: 'Ronronear',
+        status: true
+    },
+    {
+        name: 'Bañarse',
+        status: true
+    }
+]
