@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavigationIcon } from './Navigation-icon'
 import { Couple } from './Couple'
 import { CAT_LIST } from '../../../../data/db'
@@ -6,18 +6,24 @@ import { CAT_LIST } from '../../../../data/db'
 export const Navigation = () => {
 
     ///acá pondremos mas funciones // cat = CAT_LIST[0] no funciona tan asi
-    const [ cat, setCat ] = useState(CAT_LIST[0])
-    //const [ indexCat, setIndexCat ] = useState(0)
+    //constructor
+    const [ indexCat, setIndexCat ] = useState(0) //indexCat = 0
+    const [ cat, setCat ] = useState({})
 
     const goBack = () => {
-        console.log('go back...')
-        setCat(CAT_LIST[0])
+        let newIndex = indexCat == 0 ? CAT_LIST.length - 1 : indexCat - 1
+        setIndexCat(newIndex)
     }
 
     const goNext = () => {
-        console.log('go next...')
-        setCat(CAT_LIST[2])
+        let newIndex = indexCat == CAT_LIST.length - 1 ? 0 : indexCat + 1
+        setIndexCat( newIndex )
     }
+
+    //componentDidMount / componentDidUpdate
+    useEffect( () => {
+        setCat(CAT_LIST[indexCat])
+    }, [indexCat])
 
     return (
         <div className="navigation">
