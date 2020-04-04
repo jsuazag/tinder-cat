@@ -10,16 +10,20 @@ const logoStyle = {
 
 export const Topbar = () => {
 
-    const { profilePanel } = useContext(ProfileContext)
+    const { profilePanel, setProfilePanel } = useContext(ProfileContext)
+
+    const profilePanelHandler = () => {
+        //console.log('click!')
+        setProfilePanel(!profilePanel)
+    }
 
     return (
         <div className="topbar">
-            { profilePanel ? 'mostrar' : 'ocultar' }
-            <TopbarIcon name="menu-outline" />
+            <TopbarIcon onPress={ profilePanelHandler } name="menu-sharp" />
             <div style={ logoStyle }>
                 <img width="200" src={ Logo } />
             </div>
-            <TopbarIcon badge="6" name="notifications-outline" />
+            <TopbarIcon badge="6" name="notifications" />
         </div>
     )
 }

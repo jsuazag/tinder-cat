@@ -4,13 +4,20 @@ import { Bio } from './ProfileDetail/Bio'
 import { Menu } from './ProfileDetail/Menu'
 import { ProfileContext } from '../../../contexts/ProfileContext'
 
+const showProfilePanel = {
+    display: 'block'
+}
+
+const hideProfilePanel = {
+    display: 'none'
+}
+
 export const Profile = () => {
 
     const { profilePanel } = useContext(ProfileContext)
 
     return (
-        <div className="profile">
-            { profilePanel ? 'Mostrar' : 'Ocultar' }
+        <div style={ profilePanel ? showProfilePanel: hideProfilePanel } className="profile">
             <Avatar />
             <Bio />
             <Menu />
