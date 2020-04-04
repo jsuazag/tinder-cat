@@ -19,7 +19,9 @@ export const Topbar = () => {
 
     return (
         <div className="topbar">
-            <TopbarIcon onPress={ profilePanelHandler } name="menu-sharp" />
+            <div className="show-mobile">
+                <TopbarIcon onPress={ profilePanelHandler } name="menu-sharp" />
+            </div>
             <div style={ logoStyle }>
                 <img width="200" src={ Logo } />
             </div>
