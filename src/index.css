@@ -236,7 +236,13 @@ body {
     margin-top: 58px;
   }
   .about-cat{
-    display: none;
+    /*display: none;*/
+    display: block; /* esta se quita cuando se haga implementación final */
+    position: fixed;
+    width: 300px;
+    margin-top: 58px;
+    right: 0;
+    height: 100%;
   }
   .view-cats{
     margin-left: 0px;
