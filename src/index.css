@@ -324,3 +324,7 @@ body {
 .preferences-ages-container {
   margin: 15px 30px;
 }
+
+.rc-slider-track {
+  background: #9e3bec !important;
+}
