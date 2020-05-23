@@ -1,16 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Interest } from './components/Interests'
-import { MsgContext } from '../../../contexts/MsgContext'
+import { Preferences } from './components/Preferences'
+import { PreferencesAges } from './components/PreferencesAges'
 
 export const AboutCat = () => {
 
-    const message = useContext(MsgContext)
-
     return (
         <div className="about-cat">
-            About cat
-            <br /><br />
-            { message }
+            <Preferences />
+            <PreferencesAges />
             <Interest />
         </div>
     )
