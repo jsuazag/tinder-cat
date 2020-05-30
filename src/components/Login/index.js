@@ -1,22 +1,49 @@
 import React, { useState } from 'react'
 import Logo from '../../static/logo-login.png'
 import {
-    Link
+    Link, useHistory
 } from 'react-router-dom'
+import { HTTP_CONSTANTS } from '../../config/http-constants'
+import { requestHttp } from '../../config/http-server'
+import swal from 'sweetalert'
 
 export const Login = () => {
 
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
 
-    const loginHandler = () => {
-        console.log('email', email)
-        console.log('password', password)
+    const history = useHistory()
+
+    const loginHandler = (e) => {
+        e.preventDefault()
+        const data = {
+            email,
+            password
+        }
+        loginRequest (data)
+    }
+
+    const loginRequest = async (data) => {
+        try {
+            const endpoint = HTTP_CONSTANTS.login
+            const response = await requestHttp('get', endpoint, data)
+            if (response.status === 1) {
+                redirectHome()
+            } else {
+                swal('Error', 'Email/passwort not valid', 'warning')
+            }
+        } catch (err) {
+            swal('Error', 'Email/passwort not valid', 'warning')
+        }
+    }
+
+    const redirectHome = () => {
+        history.push('/')
     }
 
     return (
         <div className="login">
-            <form>
+            <form onSubmit={ loginHandler }>
                 <img src={Logo} />
                 <div className="input-custom">
                     <label>Email address</label>
@@ -28,7 +55,7 @@ export const Login = () => {
                 </div>
                 <br />
                 <div className="button-primary">
-                    <input onClick={ loginHandler } type="button" value="Login" />
+                    <input type="submit" value="Login" />
                 </div>
                 <br />
                 <p className="signup-link">
