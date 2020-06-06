@@ -14,7 +14,6 @@ export const Home = () => {
         try {
             const endpoint = HTTP_CONSTANTS.autologin
             const response = await requestHttp('post', endpoint)
-            console.log(response)
             const { status, cat } = response
             if (status === 1) {
                 setCat(cat)
@@ -45,7 +44,7 @@ export const Home = () => {
                     ? <Fragment>
                         <Profile bio={cat.bio} nick={cat.nick} image={cat.image} />
                         <ViewCats />
-                        <AboutCat />
+                        <AboutCat interest={ cat.interests } preferences={ cat.preferences } />
                     </Fragment>
                     : <p>Loading app...</p>
                 }

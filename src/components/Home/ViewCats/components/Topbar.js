@@ -13,7 +13,6 @@ export const Topbar = () => {
     const { profilePanel, setProfilePanel } = useContext(ProfileContext)
 
     const profilePanelHandler = () => {
-        //console.log('click!')
         setProfilePanel(!profilePanel)
     }
 
