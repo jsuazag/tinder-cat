@@ -5,10 +5,10 @@ export const Preferences = () => (
         <h3>Preferences</h3>
         <hr />
         <form className="form-preferences">
-            <label for="female">Female</label>
+            <label htmlFor="female">Female</label>
             <input name="gender" type="radio" value="female" />
             <span className="divider"></span>
-            <label for="male">Male</label>
+            <label htmlFor="male">Male</label>
             <input name="gender" type="radio" value="male" />
         </form>
     </div>
