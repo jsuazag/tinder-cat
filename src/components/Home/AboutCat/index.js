@@ -26,7 +26,6 @@ export const AboutCat = ({preferences, interest}) => {
 
     useEffect(() => {
         if (JSON.stringify(preferences) !== JSON.stringify(preferencesUpdated)) {
-            console.log('estas son las nuevas preferencias', preferencesUpdated)
             requestChangePreferences()
         }
     }, [preferencesUpdated])
@@ -38,7 +37,6 @@ export const AboutCat = ({preferences, interest}) => {
                 preferences: preferencesUpdated
             }
             const response = await requestHttp('put', endpoint, bodyData)
-            console.log('response', response)
         } catch (err) {
             console.error('Error: ', err)
         }
