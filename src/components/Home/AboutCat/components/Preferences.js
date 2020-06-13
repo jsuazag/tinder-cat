@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export const Preferences = ({ gender }) => {
+export const Preferences = ({ gender, onChange }) => {
 
     const [genderSelected, setGenderSelected] = useState(gender)
+
+    useEffect(() => {
+        onChange(genderSelected)
+    }, [genderSelected])
+
+    //()
+    /*const onChangeHandlerGender = (e) => {
+        setGenderSelected(e.target.value)   
+        onChange()
+    }*/
 
     return (
         <div className="interest-container">
